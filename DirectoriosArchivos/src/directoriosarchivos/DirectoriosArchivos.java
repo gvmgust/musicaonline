@@ -17,28 +17,32 @@ public class DirectoriosArchivos {
             File d = new File(dir + ficheros[i]);
             String[] f = d.list();
             if (d.isDirectory()/* && (Directorio.hayMp3(f))*/) {
-                /*for (int j = 0; j <= f.length - 1; j++) {
+                for (int j = 0; j <= f.length - 1; j++) {
                     if (Directorio.mp3(f[j])) {
                         String sql = "";
-                        sql = "insert into cancion(dir,tit)values('"+ ficheros[i] + "','"+f[j]+"');";
-                        //c.EjecutarComando(sql);
-                       // System.out.println(sql);
-                    }else{
-                        String arch = "D:/musica/"+ficheros[i]+"/"+f[j];
+                        sql = "insert into cancion(dir,tit)values('" + ficheros[i] + "','" + f[j] + "');";
+                        c.EjecutarComando(sql);
+                        System.out.println(sql);
+                    } else {
+                        String arch = "D:/musica/" + ficheros[i] + "/" + f[j];
                         File a = new File(arch);
-                        if(a.delete())
+                        if (a.delete()) {
                             System.out.println(arch);
+                        }
                     }
-                }*/
-                if(d.isDirectory()){
+                }
+                if (d.isDirectory()) {
                     int u = 0;
-                    for(int k=0;k<f.length;k++)
+                    for (int k = 0; k < f.length; k++) {
                         u++;
-                    if(u==0){
-                        System.out.println(u +": "+ ficheros[i]);
-                        File h = new File("D:/musica/"+ficheros[i]);
+                    }
+                    if (u == 0) {
+                        System.out.println(u + ": " + ficheros[i]);
+                        File h = new File("D:/musica/" + ficheros[i]);
                         h.delete();
                     }
+                }else{
+                    d.delete();
                 }
             }
         }

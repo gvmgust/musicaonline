@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div valign="top" align="center" width="7" > <table CELLPADDING=5 CELLSPACING=5 BORDER=5 BORDER bgcolor="#000000" align="center"><td align="center" WIDTH=350 HEIGHT=540 valign="top">
-	<div valign="top" align="center" width="1"><img src="http://elcallejon.com/web/logo.png" WIDTH=350 HEIGHT=50></div><br />
+	<div valign="top" align="center" width="1"><img src="http://elcallejon.com/web/logo.png" WIDTH=350 HEIGHT=35></div><br />
 		<?php 
 		if(!(isset($_GET['play'])) && !(isset($_POST['q']))){
 			botonesArtistas();

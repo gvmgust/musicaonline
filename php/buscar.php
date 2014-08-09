@@ -18,7 +18,7 @@
 		while($fila = $resultado->fetch_assoc()){
 			echo "<song \n";
 			echo "\tpath=\"".$musicas.$fila['dir']."/".$fila['tit']."\"\n";
-			echo "\ttitle=\"".$fila['tit']."\"\n/>\n";
+			echo "\ttitle=\"[".$fila['dir']."] :: ".$fila['tit']."\"\n/>\n";
 		}
 		echo "</songs>";
 	}

@@ -1,3 +1,3 @@
 <?php
-	$musicas = "http://informatica.net/musica/";
+	$musicas = "http://elcallejon.com/musica/";
 ?>

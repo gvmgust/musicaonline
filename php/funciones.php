@@ -61,7 +61,7 @@
 			echo "<table>";
 			while($fila = $resultado->fetch_assoc()){
 				echo "<tr><td><div id='sobreponer'><img src='fm.png' width='300'  height='16'/>\n";
-				echo "\t<label class='letra'>".strtoupper($fila['dir'])."</label>\n";
+				echo "\t<label class='letra'>".strtoupper($fila['dir'].' ['.$fila['cant'].']')."</label>\n";
 				echo "\t<a href='index.php?play=".$fila['dir']."'target='_self'>\n";
 				echo "\t<img class='sobre' src='mascara.png' width='300' height='16'/></a>\n";							
 				echo "</div></td></tr>\n";
@@ -69,7 +69,7 @@
 			echo "</table>";
 			echo '<table><td valing = "buttom"><form method="post" action="index.php">
     	Buscar Tema: <input type="text" name="q" value=""/>
-        <input type="submit" name="submit" value="Buscar"/> </form></td></table>';
+        <input type="submit" name="submit" value="<Buscar>"/> </form></td></table>';
 		}
 		$mysqli->close();
 	}

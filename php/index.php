@@ -4,20 +4,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Musica del Callejon</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
-<?php include("funciones.php")?>
+<?php 
+header("Content-Type: text/html;charset=utf-8");
+include("funciones.php")?>
 </head>
 <body>
-	<div valign="top" align="center" width="7" > <table CELLPADDING=5 CELLSPACING=5 BORDER=5 BORDER bgcolor="#000000" align="center"><td align="center" WIDTH=350 HEIGHT=590 valign="top">
-	<div valign="top" align="center" width="1"><img src="http://elcallejon.com/web/logo.png" WIDTH=350 HEIGHT=35></div><br />
+	<div valign="top" align="center" width="7" > <table CELLPADDING=5 CELLSPACING=5 BORDER=5 BORDER bgcolor="#000000" align="center"><td align="center" WIDTH=350 HEIGHT=540 valign="top">
+	<div valign="top" align="center" width="1"><a href="<?php echo "http://".$_SERVER['SERVER_NAME'];?>"><img src="logo.png" WIDTH=350 HEIGHT=50></a></div><br />
 		<?php 
 		if(!(isset($_GET['play'])) && !(isset($_POST['q']))){
 			botonesArtistas();
-			if((isset($_GET['i'])&&(isset($_GET['f'])))){
-				$sql = "SELECT dir,COUNT(dir)cant FROM cancion WHERE dir >= '".$_GET['i']."' AND dir <= '".$_GET['f']."' group by dir ORDER BY dir ASC limit 0,21";
+			if((isset($_GET['i'])&&(isset($_GET['f'])))){				
+				$i = $_GET['i'];				
+				$f = $_GET['f'];
 			}else{
-				$sql = "SELECT dir,COUNT(dir)cant FROM cancion group by dir ORDER BY dir LIMIT 0,21";
+				$i = 1;
+				$f = 22;
 			}
-			mostrarArtistas($sql);
+			mostrarArtistas($i,$f);
 		}else{
 			if((isset($_POST['q']))){
 				?>
@@ -28,14 +32,13 @@
 					border="0" width="330" 	height="508">
 					<param name="movie" value="Player.swf">
 					<param name="quality" value="High">
-					<embed src="Player.swf?lista=buscar.php?lista=<?php echo $_POST['q'];?>
+					<embed src="Player.swf?lista=lista.php?buscar=<?php echo $_POST['q'];?>
                 	"pluginspage=http://www.macromedia.com/go/getflashplayer" 
 					type="application/x-shockwave-flash" 
 					name="obj1" width="330" height="508"
 				></object></td></table>
                 <form><input type="button" value="volver atrás" name="volver atrás2" onclick="history.back()" /></form>
-                <?php
-				
+        <?php				
 			}else{
 		?>
         	<table><td>
